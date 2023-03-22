@@ -5,6 +5,7 @@ from aiogram import Dispatcher, Bot
 
 from config_data.config import load_config, Config
 from handlers import user_handlers
+from keyboards.set_menu import set_main_menu
 
 
 # Инициализируем логгер
@@ -27,6 +28,9 @@ async def main():
     bot: Bot = Bot(token=config.bot.token,
                    parse_mode='HTML')
     dp: Dispatcher = Dispatcher()
+
+    # Настраиваем кнопку menu у бота
+    await set_main_menu(bot)
 
     # Регистрация хэндлеров
     dp.include_router(user_handlers.router)
