@@ -16,13 +16,6 @@ from keyboards.bookmarks import bookmarks_kb
 router: Router = Router()
 
 
-@router.message(Command(commands=['test']))
-async def process_test_command(message: Message):
-    '''Тестовая функция'''
-
-    await message.answer('Это тестовая функция')
-
-
 @router.message(Command(commands=['start']))
 async def process_start_command(message: Message):
     # Проверка регистрации пользователя
